@@ -1,6 +1,8 @@
 # How to Customize the Filter UI of Angular Tree Grid
 Learn how you can customize the filter UI of the Syncfusion Angular Tree Grid control. This example explains how to add a custom component in the filter UI using a filter template. It also explains how this works in the filter bar and advanced filter types like filter menu and Excel-like filter.
 
+Watch the video now: https://www.syncfusion.com/tutorial-videos/angular/treegrid?title=how-to-customize-the-filter-ui-of-angular-tree-grid
+
 Documentation:
 https://ej2.syncfusion.com/angular/documentation/treegrid/filtering/#filter-bar-template-with-custom-component 
 
