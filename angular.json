@@ -18,17 +18,15 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "./node_modules/@syncfusion/ej2-material-theme/styles/material.css"
+              "src/styles.css"
             ],
-            "scripts": [],
-            "es5BrowserSupport": true
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -41,7 +39,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -65,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "getting-started:build"
+            "buildTarget": "getting-started:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "getting-started:build:production"
+              "buildTarget": "getting-started:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "getting-started:build"
+            "buildTarget": "getting-started:build"
           }
         },
         "test": {
@@ -91,8 +88,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "./node_modules/@syncfusion/ej2-material-theme/styles/material.css"
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -125,5 +121,7 @@
       }
     }
   },
-  "defaultProject": "getting-started"
+  "cli": {
+    "analytics": "78addc8c-7998-4668-b472-1088a036cbf9"
+  }
 }
