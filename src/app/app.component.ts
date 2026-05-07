@@ -2,23 +2,26 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { sampleData } from './datasource';
 import {
   FilterSettingsModel,
-  TreeGridComponent
+  TreeGridComponent, TreeGridModule, FilterService
 } from '@syncfusion/ej2-angular-treegrid';
 import { isNullOrUndefined } from 'util';
-import { ChangeEventArgs } from '@syncfusion/ej2-angular-dropdowns';
+import { ChangeEventArgs , DropDownListModule} from '@syncfusion/ej2-angular-dropdowns';
 
 @Component({
   selector: 'app-root',
+  standalone:true,
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [FilterService],
+  imports: [ TreeGridModule, DropDownListModule],
 })
 export class AppComponent implements OnInit {
-  public data: Object[];
-  public filterSettings: FilterSettingsModel;
+  public data!: Object[];
+  public filterSettings!: FilterSettingsModel;
   public dropDownData: string[] = [];
 
   @ViewChild('treegrid', { static: false })
-  public treegrid: TreeGridComponent;
+  public treegrid!: TreeGridComponent;
 
   ngOnInit(): void {
     this.data = sampleData;
@@ -26,13 +29,13 @@ export class AppComponent implements OnInit {
     this.filterSettings = {
       ignoreAccent: true,
       hierarchyMode: 'None',
-      type: 'Excel' //Menu, FilterBar
+      type: 'Menu', // Filterbar
     };
   }
 
-  public onChange(args: ChangeEventArgs): void {
-    this.treegrid.filterByColumn('taskName', 'equal', args.value);
-  }
+ public onChange(args: ChangeEventArgs): void {
+  this.treegrid.filterByColumn('taskName', 'equal', args.value as string);
+}
 
   public getDropDownData(data: object[]): void {
     for (var i = 0; i < data.length; i++) {
